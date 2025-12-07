@@ -18,6 +18,8 @@
 % This work consists of the files awesome-source-cv.cls
 
 \ProvidesClass{yaac-another-awesome-cv}[2020/03/24  v2.3.1 'YAAC: Another Awesome CV' Class]
+\RequirePackage{silence}
+\WarningFilter{latex}{Unused global option(s)}
 
 \def\@@ptsize{10pt}
 
@@ -28,6 +30,7 @@
 \ProcessOptions\relax
 
 \LoadClass[a4paper,\@@ptsize]{article}
+\usepackage[none]{hyphenat}
 
 \newif\if@showLinks   \@showLinksfalse
 \newif\if@isCompact   \@isCompactfalse
@@ -66,11 +69,11 @@
 
 % Dependences
 %A Few Useful Packages
-\RequirePackage[english,french]{babel}
+\RequirePackage[english]{babel}
 \RequirePackage[utf8]{luainputenc}
 \RequirePackage{fontspec} 					                 % for loading fonts
 \RequirePackage{url,parskip} 	    % other packages for formatting
-\RequirePackage[usenames,dvipsnames]{xcolor}
+\RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{fullpage}
 \RequirePackage[margin=1.5cm]{geometry}
 \RequirePackage[fixed]{fontawesome5}
@@ -254,11 +257,11 @@
 
 % Render author's linked-in (optional)
 % Usage: \linkedin{<linked-in-nick>}
-\newcommand*{\linkedin}[1]{\sociallink{\linkedinSymbol}{https://www.linkedin.com/in/#1/fr}{linkedin.com/in/#1}}
+\newcommand*{\linkedin}[1]{\sociallink{\linkedinSymbol}{https://www.linkedin.com/in/#1}{linkedin.com/in/#1}}
 
 % Render author's viadeo(optional)
 % Usage: \viadeo{<viadeo-nick>}
-\newcommand*{\viadeo}[1]{\sociallink{\viadeoSymbol}{https://www.viadeo.com/fr/profile/#1}{viadeo.com/fr/profile/#1}}
+\newcommand*{\viadeo}[1]{\sociallink{\viadeoSymbol}{https://www.viadeo.com/profile/#1}{viadeo.com/profile/#1}}
 
 % Render author's github (optional)
 % Usage: \github{<github-nick>}
@@ -545,7 +548,8 @@
 }
 
 %% Bibliography
-\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} 
+\RequirePackage{csquotes}
+\usepackage[backend=biber,style=authoryear,natbib=true]{biblatex} 
 
 \newcounter{bibitem}
 \AtBeginBibliography{\setcounter{bibitem}{1}}
