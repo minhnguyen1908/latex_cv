@@ -29,9 +29,11 @@ To follow **DevOps Security best practices**, I do not commit sensitive personal
 
 ### Option A: The "DevOps" Way (CI/CD)
 You don't need to build it. **The robot already did.**
-1. Click the **CircleCI** badge at the top.
-2. Go to the **Artifacts** tab of the latest build.
-3. Download `example/cv.pdf`.
+
+1.  Click the **CircleCI** badge at the top of this page.
+2.  On the CircleCI dashboard, click the specific **Job Name** (e.g., `build`) in the list.
+3.  Click the **Artifacts** tab (top menu of the job page).
+4.  Download `example/cv.pdf`.
 
 ### Option B: The "Local" Way (Manual)
 If you want to compile it yourself, you need a LaTeX distribution (like TeX Live).
