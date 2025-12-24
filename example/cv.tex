@@ -1,6 +1,34 @@
 \documentclass[localFont,alternative,10pt,compact]{yaac-another-awesome-cv}
 \setlength{\rightcolumnlength}{\dimexpr(\fulllength-\leftcolumnlength-1cm)\relax}
-\input{personal_dummy}
+\usepackage{ifthen}
+\usepackage{verbatim}
+
+% --- LOAD SECRETS ---
+\IfFileExists{personal.tex}{\input{personal}}{\input{personal_dummy}}
+
+% -- LOGIC GATE --
+\ifthenelse{\equal{\cvMode}{OPS}}
+    {
+        % IF MODE IS OPS
+        \tagline{\titleOPS}
+        \newcommand{\experienceFile}{section_experience_ops}
+        \newcommand{\headlineText}{section_headline_ops}
+    }
+    {
+        % IF MODE IS SRE
+        \tagline{\titleSRE}
+        \newcommand{\experienceFile}{section_experience_sre}
+        \newcommand{\headlineText}{section_headline_sre}
+    }
+
+% --- HEADER SETUP ---
+\name{\myLastName}{\myFirstName}
+\socialinfo{
+    \email{\myEmail}\\
+    \smartphone{\myPhone}\\
+    \linkedin{\myLinkedin}\\
+    \location{\myLocation}
+}
 
 \begin{document}
 
@@ -11,9 +39,9 @@
         {\textsc{Nguyễn Vũ Minh - CV}} % \selectlanguage{english}\today {\textsc{Nguyễn Vũ Minh - CV}}
         {\thepage}
 
-	\input{section_headline}
+	\input{\headlineText}
 	\input{section_competences}				% Section compétence
-	\input{section_experience}		% Section expérience
+	\input{\experienceFile}		% Section expérience
 	\input{section_education}			% Section publications
 
 \end{document}

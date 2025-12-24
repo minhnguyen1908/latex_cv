@@ -2,7 +2,7 @@
 *.acr
 *.alg
 *.aux
-*.bbl
+*.bbl*
 *.blg
 *.dvi
 *.fdb_latexmk
@@ -31,7 +31,7 @@
 *.xdy
 *.tdo
 *.pdf
-cv.fls
+*.fls
 cv.texnicle
 cv.texnicle.backup
 .DS_Store
