@@ -5,7 +5,16 @@
 \usepackage{hyperref}
 \usepackage{fontawesome5}
 \usepackage{parskip} % Adds space between paragraphs automatically
-\input{personal_ops}
+\usepackage{ifthen}
+
+% --- LOAD SECRETS ---
+\IfFileExists{personal.tex}{\input{personal}}{\input{personal_dummy}}
+
+% --- LOGIC GATE ---
+\ifthenelse{\equal{\cvMode}{OPS}}
+    { \newcommand{\targetRole}{\titleOPS} }
+    { \newcommand{\targetRole}{\titleSRE} }
+
 % --- SETUP MARGINS ---
 \geometry{
   top=2cm,
@@ -22,11 +31,11 @@
 \color{primary}
 
 % --- HEADER ---
-{\huge \textbf{Nguyen Vu Minh}} \hfill \today \\
+{\huge \textbf{\myFirstName \ \myLastName}} \hfill \today \\
 \vspace{0.2cm}
-{\color{accent} \faPhone \ +84 90 123 4567} \quad \textbullet \quad
-{\color{accent} \faEnvelope \ email@example.com} \quad \textbullet \quad
-{\color{accent} \faLinkedin \ linkedin.com/in/yourprofile}
+{\color{accent} \faPhone \ \myPhone} \quad \textbullet \quad
+{\color{accent} \faEnvelope \ \myEmail} \quad \textbullet \quad
+{\color{accent} \faLinkedin \ \myLinkedin}
 \vspace{0.3cm}
 \hrule
 \vspace{1cm}
